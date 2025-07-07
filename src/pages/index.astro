@@ -1,11 +1,26 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro"
+import Hero from "../components/Home/Hero.astro"
+import Skills from "../components/Home/Skills"
+import Experience from "../components/Home/Experience"
+import Projects from "../components/Home/Projects.astro"
+import Contact from "../components/Home/Contact.astro"
+import About from "../components/Home/About.astro"
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="David Freites - Portfolio" description="Ecommerce Developer">
+  <main
+    class="absolute top-0 z-[-2] h-fit w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,255,0.8),rgba(255,255,255,0))]
+         dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+  >
+    <div></div>
+    <Hero />
+    <About />
+    <Skills client:load />
+    <Experience client:load />
+    <Contact />
+  </main>
 </Layout>

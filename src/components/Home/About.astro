@@ -1,0 +1,75 @@
+<section id="about" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div
+      class="transition-all duration-1000 ease-out opacity-0 translate-y-12 will-change-auto"
+      id="about-title"
+    >
+      <h2 class="text-4xl md:text-5xl font-light mb-12 text-center">
+        About <span class="font-medium">Me</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div
+        class="transition-all duration-1000 ease-out delay-300 opacity-0 -translate-x-8 will-change-auto"
+        id="about-photo"
+      >
+        <div
+          class="w-80 h-80 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-500 relative overflow-hidden group"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          >
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-32 h-32 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <span class="text-4xl font-light">AD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="transition-all duration-1000 ease-out delay-500 opacity-0 translate-x-8 will-change-auto"
+        id="about-text"
+      >
+        <p class="text-lg leading-relaxed mb-6">
+          I'm a passionate developer with over 3 years of experience creating digital experiences
+          with a focus on eCommerce.
+        </p>
+        <p class="text-lg leading-relaxed mb-6">
+          I focus on clean, efficient solutions that balance user experience and business strategy,
+          aligning every technical choice with tangible outcomes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = [
+      document.getElementById("about-title"),
+      document.getElementById("about-photo"),
+      document.getElementById("about-text"),
+    ]
+    const skills = document.querySelectorAll("[data-skill]")
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-12", "translate-x-8")
+            entry.target.classList.add("opacity-100", "translate-y-0", "translate-x-0")
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    ;[...elements, ...skills].forEach((el) => {
+      if (el) observer.observe(el)
+    })
+  })
+</script>
