@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets"
+import profileImage from "../../assets/profile.jpg"
+---
+
 <section id="about" class="py-20 px-4">
   <div class="max-w-5xl mx-auto">
     <div
@@ -15,16 +20,14 @@
         id="about-photo"
       >
         <div
-          class="w-80 h-80 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-500 relative overflow-hidden group"
+          class="w-64 h-64 mx-auto rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-500 relative overflow-hidden group"
         >
           <div
             class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           >
           </div>
           <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-32 h-32 bg-white rounded-full shadow-lg flex items-center justify-center">
-              <span class="text-4xl font-light">AD</span>
-            </div>
+            <Image src={profileImage} alt="Foto de David Freites" class="w-100 h-100" />
           </div>
         </div>
       </div>
