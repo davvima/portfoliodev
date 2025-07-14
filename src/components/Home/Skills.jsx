@@ -63,12 +63,12 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className={`group bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${
+              className={`group bg-slate-200 dark:bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${300 + index * 200}ms` }}
             >
-              <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gray-900 group-hover:text-white transition-all duration-300">
+              <div className="w-16 h-16 bg-gray-300 text-slate-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gray-500 group-hover:text-white ">
                 <skill.icon className="w-8 h-8" />
               </div>
 

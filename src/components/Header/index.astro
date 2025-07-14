@@ -1,0 +1,93 @@
+---
+// src/components/Navbar.astro
+import ButtonMode from "./ButtonMode.astro"
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-background transition-shadow duration-500"
+>
+  <div style={{ width: "234px" }}>
+    <a href="/" class="font-bold text-xl">DAVVIMA</a>
+  </div>
+
+  <ul
+    id="navbar-menu"
+    class="hidden lg:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 shadow-lg bg-[rgba(255,255,255,0.1)]"
+  >
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Work</a></li>
+  </ul>
+
+  <div class="flex items-center gap-4">
+    <ButtonMode />
+    <a
+      href="#contact"
+      class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
+    >
+      Contact
+      <span>🌐</span>
+    </a>
+
+    <button id="menu-open-btn" class="block lg:hidden ml-3">
+      <span>☰</span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="fixed top-0 -right-64 w-64 h-screen bg-rose-50 z-50 lg:hidden">
+    <ul class="flex flex-col gap-4 py-8 px-10 h-full">
+      <button id="menu-close-btn" class="absolute right-6 top-6">
+        <span>✕</span>
+      </button>
+      <li><a class="mobile-link" href="#top">Home</a></li>
+      <li><a class="mobile-link" href="#about">About me</a></li>
+      <li><a class="mobile-link" href="#services">Services</a></li>
+      <li><a class="mobile-link" href="#work">My work</a></li>
+      <li><a class="mobile-link" href="#contact">Contact me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // --- Lógica de Scroll ---
+  const navbar = document.getElementById("navbar")
+  const navbarMenu = document.getElementById("navbar-menu")
+
+  window.addEventListener("scroll", () => {
+    if (!navbar || !navbarMenu) return
+    if (window.scrollY > 140) {
+      navbar.classList.add("bg-[rgba(255,255,255,0.1)]", "backdrop-blur-lg", "shadow-sm")
+      navbarMenu.classList.remove("shadow-lg", "bg-[rgba(255,255,255,0.1)]")
+    } else {
+      navbar.classList.remove("bg-[rgba(255,255,255,0.1)]", "backdrop-blur-lg", "shadow-sm")
+      navbarMenu.classList.add("shadow-lg", "bg-[rgba(255,255,255,0.1)]")
+    }
+  })
+
+  // --- Lógica del Menú Móvil ---
+  const mobileMenu = document.getElementById("mobile-menu")
+  const openButton = document.getElementById("menu-open-btn")
+  const closeButton = document.getElementById("menu-close-btn")
+  const mobileLinks = document.querySelectorAll(".mobile-link")
+
+  const openMenu = () => {
+    if (!mobileMenu) return
+    mobileMenu.classList.remove("-right-64")
+    mobileMenu.classList.add("right-0")
+  }
+
+  const closeMenu = () => {
+    if (!mobileMenu) return
+    mobileMenu.classList.remove("right-0")
+    mobileMenu.classList.add("-right-64")
+  }
+
+  openButton?.addEventListener("click", openMenu)
+  closeButton?.addEventListener("click", closeMenu)
+  // Cierra el menú al hacer clic en un enlace
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu)
+  })
+</script>

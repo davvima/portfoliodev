@@ -77,7 +77,7 @@ const Experience = () => {
 
                 {/* Contenido para mobile */}
                 <div className="md:hidden ml-16">
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-slate-200 dark:bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="text-sm font-medium text-gray-500 mb-2">{exp.year}</div>
                     <h3 className="text-xl font-medium text-gray-900 mb-1">{exp.title}</h3>
                     <div className="text-gray-700 font-medium mb-3">{exp.company}</div>
@@ -93,11 +93,11 @@ const Experience = () => {
                     }`}
                   >
                     <div className={`w-5/12 ${index % 2 === 0 ? "pr-8 text-right" : "pl-8"}`}>
-                      <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="bg-slate-200 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div className="text-sm font-medium text-gray-500 mb-2">{exp.year}</div>
                         <h3 className="text-xl font-medium text-gray-900 mb-1">{exp.title}</h3>
-                        <div className="text-gray-700 font-medium mb-3">{exp.company}</div>
-                        <p className="text-gray-600 leading-relaxed">{exp.description}</p>
+                        <div className="text-gray-800 font-medium mb-3">{exp.company}</div>
+                        <p className="text-gray-700 leading-relaxed">{exp.description}</p>
                       </div>
                     </div>
                   </div>

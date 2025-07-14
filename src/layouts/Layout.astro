@@ -2,7 +2,7 @@
 import { ClientRouter } from "astro:transitions"
 import "@fontsource-variable/onest"
 import "../styles/global.css"
-import Header from "../components/Header"
+import Header from "../components/Header/index.astro"
 
 const { title, description } = Astro.props
 ---
@@ -14,11 +14,28 @@ const { title, description } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme")
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark"
+        }
+        return "light"
+      })()
+
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
+    </script>
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body>
-    <Header client:load />
+  <body class="bg-gray-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+    <Header />
     <slot />
   </body>
 </html>
@@ -34,9 +51,9 @@ const { title, description } = Astro.props
     display: flex;
     justify-content: center;
     flex-direction: column;
-    transition: all 1s;
+    /* transition: all 1s; */
   }
   * {
-    transition: all 0.2s;
+    transition: colors 0.5s;
   }
 </style>

@@ -21,7 +21,7 @@ const HeroButtons = () => {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
         <button
           onClick={downloadCV}
-          className="group inline-flex items-center px-8 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+          className="group inline-flex items-center px-8 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-800  hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
         >
           <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
           <span className="font-medium">Download CV</span>
@@ -29,7 +29,7 @@ const HeroButtons = () => {
 
         <button
           onClick={scrollToNext}
-          className="group inline-flex items-center hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+          className="group inline-flex items-center hover:text-gray-300  cursor-pointer"
         >
           <span className="text-sm font-medium tracking-wide uppercase mr-2">Explore My Work</span>
           <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
